@@ -22,10 +22,11 @@ jobs:
 
       - name: Report knip results to pull request
         uses: Codex-/knip-reporter@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.KNIP_TOKEN }}
         with:
           verbose: true
           comment_id: ${{ github.workflow }}-reporter
           command_script_name: knip-ci
           annotations: true
           ignore_results: false
-          token: ${{ secrets.KNIP_TOKEN }} 
