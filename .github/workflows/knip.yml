@@ -28,4 +28,4 @@ jobs:
           command_script_name: knip-ci
           annotations: true
           ignore_results: false
-          token: ${{ env.KNIP_TOKEN_FINE_GRAINED }}
+          token: ${{ vars.KNIP_TOKEN_FINE_GRAINED }}
