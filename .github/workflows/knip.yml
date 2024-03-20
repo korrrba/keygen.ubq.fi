@@ -28,4 +28,4 @@ jobs:
           command_script_name: knip-ci
           annotations: true
           ignore_results: false
-          token: ${{ secrets.KNIP_TOKEN }} 
+          token: ${{ secrets.KNIP_TOKEN || github.token }} 
