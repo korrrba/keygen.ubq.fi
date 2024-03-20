@@ -27,7 +27,7 @@
     "open-source"
   ],
   "dependencies": {
-    "cypress": "13.6.6",
+    "cypress": "13.6.5",
     "dotenv": "^16.4.4",
     "libsodium-wrappers": "^0.7.13"
   },
