@@ -21,3 +21,9 @@ jobs:
 
       - name: Run Knip
         run: yarn knip || yarn -s knip --reporter json > knip-results.json
+
+      - name: Upload knip result
+        uses: actions/upload-artifact@v4
+        with:
+          name: knip-results
+          path: knip-results.json
