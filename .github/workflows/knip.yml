@@ -3,7 +3,6 @@ name: Knip
 on:
   pull_request:
 
-
 jobs:
   run-knip:
     runs-on: ubuntu-latest
@@ -19,5 +18,17 @@ jobs:
       - name: Install toolchain
         run: yarn install
 
+      - name: Store PR number
+        run: echo ${{ github.event.number }} > pr-number.txt
+
       - name: Run Knip
         run: yarn knip || yarn -s knip --reporter json > knip-results.json
+
+      - name: Upload knip result
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: knip-results
+          path: |
+            knip-results.json
+            pr-number.txt

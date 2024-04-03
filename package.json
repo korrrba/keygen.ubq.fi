@@ -16,7 +16,6 @@
     "format:prettier": "prettier --write .",
     "format:cspell": "cspell **/*",
     "knip": "knip",
-    "knip-ci": "knip --no-exit-code --reporter json",
     "prepare": "husky install"
   },
   "keywords": [
