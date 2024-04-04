@@ -11,7 +11,7 @@ permissions:
   issues: write
 
 jobs:
-  run-knip:
+  knip-reporter:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,3 +49,4 @@ jobs:
           json_input: true
           json_input_file_name: knip-results.json
           pull_request_number: ${{ steps.pr-number.outputs.content }}
+          token: ${{ secrets.GITHUB_TOKEN }}
