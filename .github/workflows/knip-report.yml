@@ -28,6 +28,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: knip-results
+          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Report knip results to pull request
         if: ${{ github.event.workflow_run.conclusion != 'success' }}
