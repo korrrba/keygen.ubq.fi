@@ -6,10 +6,6 @@ on:
     types:
       - completed
 
-permissions:
-  checks: write
-  issues: write
-
 jobs:
   knip-reporter:
     runs-on: ubuntu-latest
