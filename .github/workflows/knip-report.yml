@@ -31,6 +31,12 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Read pr number
+        id: pr-number
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./pr-number.txt
+
       - name: Report knip results to pull request
         if: ${{ github.event.workflow_run.conclusion != 'success' }}
         uses: gitcoindev/knip-reporter@main
@@ -42,4 +48,4 @@ jobs:
           ignore_results: false
           json_input: true
           json_input_file_name: knip-results.json
-          pull_request_number: ${ `cat pr-number.txt` }
+          pull_request_number: ${{ steps.pr-number.outputs.content }}
